@@ -1,0 +1,198 @@
+
+Natural Language Processing : It is a part of computer science and artificial intelligence
+ that focuses on the interaction between computers and humans through natural language.
+
+Goal here is to enable computers to understand, interpret, and generate human language in a way that is valuable.
+
+This involves several key tasks, including:
+
+    1. Text Preprocessing: Cleaning and preparing text data for analysis, including tokenization, stemming, and lemmatization.
+    2. Part-of-Speech Tagging: Identifying the grammatical parts of speech in a sentence, such as nouns, verbs, adjectives, etc.
+    3. Named Entity Recognition (NER): Identifying and classifying named entities in text, such as people, organizations, locations, dates, etc.
+    4. Sentiment Analysis: Determining the sentiment or emotional tone of a piece of text, such as positive, negative, or neutral.
+    5. Machine Translation: Automatically translating text from one language to another.
+    6. Text Summarization: Creating a concise summary of a longer piece of text while retaining its key information.
+    7. Language Modeling: Predicting the next word or sequence of words in a sentence based on the context.
+    8. Speech Recognition: Converting spoken language into written text.
+    9. Chatbots and Conversational Agents: Developing systems that can engage in natural language conversations with users.
+    10. Information Retrieval: Extracting relevant information from large datasets or documents based on user queries.  
+
+
+
+Examples of NLP : 
+
+1. Spell Checking ex - Grammarly
+2. Information Extraction ex - Resume Screening
+3. Keyword Search ex - Google Search
+4. Advertisment Matching ex - Google Ads
+5. Sentiment Analysis ex - Twitter Sentiment Analysis
+6. Speech Recognition ex - Siri, Alexa
+7. Chatbots ex - ChatGPT
+8. Machine Translation ex - Google Translate
+
+NLP Components :
+1. NLU : Natural Language Understanding
+2. NLG : Natural Language Generation
+
+1. NLU : Natural Language Understanding : It focuses on comprehending and interpreting human language.
+    - Mapping input to useful representations
+    - Analyzing different aspects of language
+
+2. NLG : Natural Language Generation : It focuses on generating human-like text based on given data or context.
+    - Text Planning - includes retrieving relevent content from the knowledge base
+    - Sentence Planning - choosing required words from meaningful phrases to set tone of the sentences
+    - Text Realization - converting the sentence plan into actual text
+
+NLU Ambiguity Types :
+1. Lexical Ambiguity : A word has multiple meanings
+    ex - "bank" can mean a financial institution or the side of a river.
+2. Syntactic / Structural / Grammatical Ambiguity : A sentence can be interpreted in multiple ways due to its structure
+    ex - The chicken is ready to eat.
+3. Referential Ambiguity : Uncertainty about what a pronoun or noun phrase refers to
+    ex - "John told Mike that he would  go to the store." (Who is "he"? John or Mike?)
+
+NLTK : Natural Language Toolkit of Python
+- A comprehensive library for NLP tasks
+- Provides tools for text processing, tokenization, stemming, tagging, parsing, and more.
+- Useful for educational and research purposes in NLP.
+
+- download in python shell :
+import nltk
+nltk.download()
+
+corpora : large and structured set of texts
+- NLTK provides access to various corpora for NLP tasks.
+
+
+-- to donwload specific package in terminal:
+python -m nltk.downloader brown
+
+Tokenization : process of breaking down text into smaller units called tokens.
+
+Types of Tokenization :
+
+
+1. Break a complex sentence into words.
+2. Understand the importance of each of the words with respect to the sentence.
+3. Produce a structural description of an input sentence.
+
+
+1. Sentence Tokenization : Splitting text into individual sentences. 
+2. Word Tokenization : Splitting sentences into individual words or tokens.
+3. Subword Tokenization : Breaking down words into smaller meaningful units called subwords.
+
+Frequency Distribution : A statistical representation that shows how often each unique item (word, token, etc.) appears in a given text or corpus.
+    from nltk.probability import FreqDist
+    fdist = FreqDist()
+
+    fdist can be updated using:
+    for word in text:
+        fdist[word.lower()]+=1
+    fdist  # it will show the frequency distribution of words in the text
+
+
+Advanced Tokenization Techniques :
+1. Ngram Tokenization : It involves breaking down text into contiguous sequences of 'n' items (words or characters).
+2. Bigram Tokenization : It involves breaking down text into pairs of consecutive words.
+3. Trigram Tokenization : It involves breaking down text into triplets of consecutive words.
+
+# Stemming : It is the process of reducing words to their root or base form by removing prefixes and suffixes.
+ # not recommended for production use as it can produce non-dictionary words
+
+ # limitations of stemming :
+ 1. Overstemming : When different words are reduced to the same root form, leading to loss of meaning.
+ 2. Understemming : When related words are not reduced to the same root form, leading to missed connections.
+ 3. Irregular Forms : Stemming algorithms may struggle with irregular word forms that do not follow standard patterns.
+ 4. Context Sensitivity : Stemming does not consider the context in which a word is used, which can lead to incorrect interpretations.
+
+# Lemmatization : It is the process of reducing words to their base or dictionary form, known as a lemma.
+ # more accurate than stemming as it considers the context and meaning of the word
+ # recommended for production use
+
+ # limitations of lemmatization :
+ 1. Requires More Resources : Lemmatization typically requires access to a comprehensive dictionary or lexical database, which can be resource-intensive.
+ 2. Slower Processing : Due to its complexity and reliance on linguistic rules, lemmatization can be slower than stemming, especially for large datasets.
+ 3. Ambiguity in Context : While lemmatization considers context, it may still struggle with words that have multiple meanings depending on their usage 
+    in a sentence.
+ 4. Language Dependency : Lemmatization algorithms are often language-specific, meaning that a lemmatizer designed for one language may not work effectivel
+    for another without significant modifications.
+
+
+Stop Words : These are common words that do not carry significant meaning and are often removed during text preprocessing to improve the efficiency of 
+              NLP tasks.
+Examples include "is", "the", "and", "in", etc.
+
+# regex pattern to remove punctuation and numbers
+import re
+punctuation = re.compile(r'[-.?!,:;()|0-9]') # regex pattern to remove punctuation and numbers
+post_punctuation = [] # create empty array
+for word in Alex_tokens:
+    w = punctuation.sub("",word)
+    if len(w)>0:
+        post_punctuation.append(w) 
+
+post_punctuation
+
+# POS : Part of Speech Tagging : It is the process of assigning grammatical tags to words in a sentence based on their role and function.
+ # It helps in understanding the structure and meaning of sentences.
+
+
+ # POS Tags Examples :
+    - Noun (NN): Represents people, places, things, or ideas. Examples: 'dog', 'city', 'happiness'
+    - Verb (VB): Represents actions or states of being. Examples: 'run', 'is', 'think'
+    - Adjective (JJ): Describes or modifies nouns. Examples: 'happy', 'blue', 'quick'
+    - Adverb (RB): Modifies verbs, adjectives, or other adverbs. Examples: 'quickly', 'very', 'well'
+    - Symbol (SYM): Represents symbols or special characters. Examples: '$', '%', '&'
+    - Pronoun (PRP): Replaces nouns to avoid repetition. Examples: 'he', 'she', 'it'
+    - Preposition (IN): Shows relationships between nouns and other words. Examples: 'in', 'on', 'at'
+    - Conjunction (CC): Connects words, phrases, or clauses. Examples: 'and', 'but', 'or'
+    - Interjection (UH): Expresses strong emotions or reactions. Examples: 'oh', 'wow', 'ouch'
+
+# Limitation of POS Tagging :
+ 1. Ambiguity : Many words can serve multiple grammatical roles depending on the context, leading to potential misclassification.
+ 2. Context Sensitivity : POS tagging algorithms may struggle to accurately interpret words in complex sentences or idiomatic expressions.
+ 3. Domain Dependency : POS taggers trained on specific domains may not perform well when applied to texts from different fields or genres.
+ 4. Incomplete Lexicons : The accuracy of POS tagging can be limited by the comprehensiveness of the underlying lexicon or training data 
+    used by the algorithm.
+    
+# Named Entity Recognition (NER) : It is the process of identifying and classifying named entities in text into predefined categories such 
+                                   as persons, organizations, locations, dates, etc.
+
+# Phases of NER:
+1. Noun Phrase Identification : Identifying potential named entities in the text,
+   typically by looking for capitalized words or specific patterns 
+   using POS tagging and dependency parsing.
+2. Phrase Classification : Classifying the identified noun phrases into predefined categories 
+   (e.g., person, organization, location) using machine learning algorithms or rule-based approaches.
+   Apart from this,  one can curate the lookup tables and dictionaries by combining information from
+    various sources.
+3. Entity Disambiguation : Resolving ambiguities when a named entity can refer to multiple real-world entities.
+    Popular Knowledge graphs like Wikidata and DBpedia can be used to link entities to their corresponding entries
+    in these databases.
+
+# NER Entities List :
+1. PERSON : People, including fictional.
+2. FAC : Buildings, airports, highways, bridges, etc.
+3. ORG : Organizations, including companies, agencies, institutions, etc.
+4. GPE : Countries, cities, states.
+5. LOC : Non-GPE locations, mountain ranges, bodies of water.
+6. GSPG : Geopolitical entities, including countries, cities, states.
+
+
+Syntax tree - It is a tree representation of the syntactic structure of a sentence.
+
+# Phase Structure Rules for NER :
+
+# install ghostscript for tree visualization
+
+
+# Chunking : It is the process of grouping words into meaningful phrases or chunks 
+             based on their syntactic roles.
+             It helps in identifying and extracting relevant information from text.
+
+
+
+
+
+
+
