@@ -1,0 +1,12 @@
+why use NumPy ?
+
+NumPy is a powerful library for numerical computing in Python. Here are some reasons why you might want to use NumPy:
+
+1. NumPy provides efficient storage
+2. It also provides better ways of handling data(functions) for processing
+3. It is fast
+4. It is easy to learn
+5. NumPy uses relatively less memory to store data
+
+
+
