@@ -7,4 +7,3 @@
 5. Named Entity Recognition (NER)
 6. Chunking
 
-# OpenCV Basics - https://github.com/aayushjha5/python-libraries-learn/tree/numpy_basics
